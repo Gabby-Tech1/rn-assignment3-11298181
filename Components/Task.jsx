@@ -1,33 +1,70 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import {  StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+
+const task = [
+    {
+        name: 'Mobile Development',
+    },
+    {
+        name: 'Web Development',
+    },
+    {
+        name: 'Python Lessons',
+    },
+    {
+        name: 'Marchine Learning',
+    },
+    {
+        name: 'Artificial Intelligence',
+    },
+    {
+        name: 'CyberSecurity',
+    },
+    {
+        name: 'Data Analysis',
+    },
+    {
+        name: 'Data Analysis',
+    },
+    {
+        name: 'Data Analysis',
+    },
+    {
+        name: 'Data Analysis',
+    },
+    {
+        name: 'Data Analysis',
+    },
+    {
+        name: 'Data Analysis',
+    },
+    {
+        name: 'Data Analysis',
+    },
+    {
+        name: 'Data Analysis',
+    },
+    {
+        name: 'Data Analysis',
+    },
+]
 
 const Task = () => {
   return (
-    <ScrollView>
-        <View style={styles.task}>
-        <View style={styles.container}>
-            <Text style={styles.text}>Mobile Development</Text> 
-        </View>
-        <View style={styles.container}>
-            <Text style={styles.text}>Web Development</Text> 
-        </View>
-        <View style={styles.container}>
-            <Text style={styles.text}>Mobile Development</Text> 
-        </View>
-        <View style={styles.container}>
-            <Text style={styles.text}>Web Development</Text> 
-        </View>
-        <View style={styles.container}>
-            <Text style={styles.text}>Mobile Development</Text> 
-        </View>
-        <View style={styles.container}>
-            <Text style={styles.text}>Web Development</Text> 
-        </View>
-        <View style={styles.container}>
-            <Text style={styles.text}>Mobile Development</Text> 
-        </View>
-        </View>
-    </ScrollView>
+    <View>
+        {
+            task.map((item, id)=>{
+                return(
+                <TouchableOpacity style={styles.task} key={id}>
+                    <View style={styles.container}>
+                        <Text style={styles.text}>{item.name}</Text>
+                    </View>
+                </TouchableOpacity>
+                )
+            })
+        }
+        
+    </View>
   )
 }
 
@@ -48,7 +85,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         marginHorizontal: 20,
         gap: 10,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        marginBottom: 10
     },
     text: {
         fontSize: 18,

@@ -1,26 +1,17 @@
-import { FlatList, Image, ScrollView, SectionList, StyleSheet, Text, TextInput, View } from 'react-native'
+import { FlatList, Image, ScrollView, SectionList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Categories from '../Components/Categories';
 import Task from '../Components/Task';
-import Profile from '../assets/profile.png'
 import Filter from '../assets/filter.png'
 import Search from '../assets/search.png'
+import Header from '../Components/Header';
 
 
 
 const Home = () => { 
   return (
     <View>
-        <View style={styles.title}>
-            <View style={styles.text}>
-                <Text style={styles.welcome}>Hello, Devs</Text>
-                <Text style={styles.welcomeText}>14 tasks today</Text>
-            </View>
-            <Image
-                style={styles.image}
-                source={Profile}
-            />
-        </View>
+        <Header/>
         <View style={styles.search}>
             <View style={styles.searchBox}>
                 <Image
@@ -29,10 +20,13 @@ const Home = () => {
                  />
                 <TextInput placeholder='Search' style={styles.searchInput}/>
             </View>
-            <Image
-                style={styles.filter}
-                source={Filter}
-            />
+            <TouchableOpacity>
+                <Image
+                    style={styles.filter}
+                    source={Filter}
+                />
+            </TouchableOpacity>
+            
 
         </View>
         <View style={styles.tasks}>
@@ -41,9 +35,9 @@ const Home = () => {
                 <Categories/> 
             </ScrollView>
         </View>
-        <View style={styles.tasks}>
+        <View style={styles.task}>
             <Text style={styles.categories}>Ongoing Tasks</Text>
-                <Task/>     
+            <Task/>     
         </View>
     </View>
   )
@@ -52,32 +46,6 @@ const Home = () => {
 export default Home
 
 const styles = StyleSheet.create({
-    title: {
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'row',
-        padding: 20,
-        justifyContent: 'space-between'
-    },
-    text: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    image: {
-        width: 70,
-        height: 70,
-        borderRadius: 100,
-    },
-    welcome: {
-        fontSize: 37,
-        fontWeight: 'bold',
-        color: '#000',
-    },
-    welcomeText: {
-        fontSize: 16,
-        fontWeight: 'medium',
-        color: '#000',
-    },
     search: {
         display: 'flex',
         alignItems: 'center',
@@ -116,6 +84,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         color: '#000'
+    },
+    task: {
+        paddingTop: 20
     }
     
 })
